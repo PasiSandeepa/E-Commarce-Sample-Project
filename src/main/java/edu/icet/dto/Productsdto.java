@@ -1,4 +1,4 @@
-package edu.icet.controller;
+package edu.icet.dto;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Products {
+public class Productsdto {
     private int id;
     private String name;
     private String brand;
