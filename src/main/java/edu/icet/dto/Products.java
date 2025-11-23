@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Productsdto {
+public class Products {
     private int id;
     private String name;
     private String brand;

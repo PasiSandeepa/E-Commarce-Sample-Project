@@ -3,19 +3,23 @@ package edu.icet.controller;
 import edu.icet.dto.Products;
 import edu.icet.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping
+@RequestMapping("Products")
+
 public class ProductController {
 
     private final ProductService productService;
     @PostMapping("add")
     public void addProduct(@RequestBody Products products) {
         productService.addProducts(products);
+    }
+    @GetMapping("all")
+    public List<Products> getAll(){
+       return productService.getAll();
     }
 }

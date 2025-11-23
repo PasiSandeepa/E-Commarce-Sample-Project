@@ -9,11 +9,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    ProductsRepository productsRepository;
+    final ProductsRepository productsRepository;
     final ModelMapper modelMapper;
 
     @Override
@@ -21,5 +24,16 @@ public class ProductServiceImpl implements ProductService {
 
         Product product = modelMapper.map(products, Product.class);
         productsRepository.save(product);
+    }
+
+    @Override
+    public List<Products> getAll() {
+        ArrayList<Products> ProductList = new ArrayList<>();
+        for (Product product : productsRepository.findAll()) {
+
+            Products products = modelMapper.map(product, Products.class);
+            ProductList.add(products);
+        }
+        return ProductList;
     }
 }
