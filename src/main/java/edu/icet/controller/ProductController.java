@@ -20,6 +20,6 @@ public class ProductController {
     }
     @GetMapping("all")
     public List<Products> getAll(){
-       return productService.getAll();
+        return productService.getAll();
     }
 }
